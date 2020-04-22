@@ -1,5 +1,5 @@
 const getOrders = function() {
-    console.log(restaurant.orders)
+    return this.orders;
 }
 
 const restaurant = {
@@ -11,14 +11,26 @@ const restaurant = {
     }
 }
 
-const chickenComboMeal = {
-    sandwichType: "Chicken",
-    fries: true,
-    drinkSize: "Large"
+function comboMeal (sandwichType, fries, drinkSize){
+    let combo = {};
+    combo.sandwichType = sandwichType;
+    combo.fries = fries;
+    combo.drinkSize = drinkSize;
+    return combo;
+
+
+
 }
+
+const chickenComboMeal = comboMeal("Chicken", true, "Large");
+const burgerComboMeal = comboMeal("Beef", true, "Medium");
+const veggieComboMeal = comboMeal("Panini", false, "Small");
+
 
 // Place an order
 restaurant.placeOrder(chickenComboMeal)
+restaurant.placeOrder(burgerComboMeal)
+restaurant.placeOrder(veggieComboMeal)
 
 // Invoke the function to return the list of all orders
 getOrders() 
